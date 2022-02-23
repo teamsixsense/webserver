@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
     {% for pic in picture_list %}
-    <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a> 
+    <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
     {% endfor %}
 {% endblock %}
