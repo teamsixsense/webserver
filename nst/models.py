@@ -7,7 +7,10 @@ class Picmodel(models.Model):
         db_table = "pictures"
 
     image = models.ImageField()
-    name = models.CharField(null=True)
-    artist = models.CharField(null=True)
+    name = models.CharField(max_length=256, null=True)
+    artist = models.CharField(max_length=256, null=True)
     desc = models.TextField(null=True)
-    nation = models.CharField()
+    nation = models.CharField(max_length=32)
+
+    def __str__(self) -> str:
+        return self.name
