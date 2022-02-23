@@ -1,3 +1,5 @@
+{% load static %}
+<link href="{% static 'category.css' %}" rel="stylesheet" type="text/css">
 {% extends 'base.html' %}
 {% block content %}
     {% for pic in picture_list %}
