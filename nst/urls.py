@@ -6,6 +6,6 @@ urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
     path("category/", views.CategoryView.as_view(), name="category"),
     path("category/<str:nation>", views.PicListView.as_view(), name="list"),
-    path("detail/<int:id>", views.PicDetailView.as_view(), name="detail"),
+    path("detail/<int:pk>", views.PicDetailView.as_view(), name="detail"),
     path("result/<int>", views.ResultView.as_view(), name="result"),
 ]
