@@ -1,3 +1,5 @@
+from typing import Optional
+
 from django.db import models
 
 
@@ -7,7 +9,7 @@ class Picmodel(models.Model):
         db_table = "pictures"
 
     image = models.ImageField()
-    name = models.CharField(max_length=256, null=True)
+    name = models.CharField(max_length=256)
     artist = models.CharField(max_length=256, null=True)
     desc = models.TextField(null=True)
     nation = models.CharField(max_length=32)

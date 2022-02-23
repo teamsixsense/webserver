@@ -129,7 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -138,17 +137,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CDN_ENABLED = True
 
-AWS_S3_REGION_NAME = 'ap-northeast-2'
-AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_ACCESS_KEY_ID = secrets['AWS']['ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = secrets['AWS']['SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
-AWS_DEFAULT_ACL = 'public-read' # 올린 파일을 누구나 읽을 수 있게 지정합니다!
+AWS_S3_REGION_NAME = "ap-northeast-2"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+AWS_ACCESS_KEY_ID = secrets["AWS"]["ACCESS_KEY_ID"]
+AWS_SECRET_ACCESS_KEY = secrets["AWS"]["SECRET_ACCESS_KEY"]
+AWS_STORAGE_BUCKET_NAME = secrets["AWS"]["STORAGE_BUCKET_NAME"]
+AWS_DEFAULT_ACL = "public-read"  # 올린 파일을 누구나 읽을 수 있게 지정합니다!
 
-AWS_CLOUDFRONT_DOMAIN = 'd1txao2peb1gkd.cloudfront.net'
-AWS_S3_CUSTOM_DOMAIN = '{}.s3.ap-northeast-2.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
+AWS_CLOUDFRONT_DOMAIN = "d1txao2peb1gkd.cloudfront.net"
+AWS_S3_CUSTOM_DOMAIN = "{}.s3.ap-northeast-2.amazonaws.com".format(AWS_STORAGE_BUCKET_NAME)
 
-DEFAULT_FILE_STORAGE = 'config.storage.S3MediaStorage'
+DEFAULT_FILE_STORAGE = "config.storage.S3MediaStorage"
 # STATICFILES_STORAGE = 'config.storage.S3StaticStorage'
 # STATICFILES_LOCATION = 'static'
 

@@ -15,6 +15,7 @@ django-stubs = "^1.9.0"
 types-PyMySQL = "^1.0.13"
 Pillow = "^9.0.1"
 django-storages = "^1.12.3"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"

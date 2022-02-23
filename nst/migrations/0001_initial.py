@@ -7,22 +7,21 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Picmodel',
+            name="Picmodel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='')),
-                ('name', models.CharField(max_length=256, null=True)),
-                ('artist', models.CharField(max_length=256, null=True)),
-                ('desc', models.TextField(null=True)),
-                ('nation', models.CharField(max_length=32)),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("image", models.ImageField(upload_to="")),
+                ("name", models.CharField(max_length=256, null=True)),
+                ("artist", models.CharField(max_length=256, null=True)),
+                ("desc", models.TextField(null=True)),
+                ("nation", models.CharField(max_length=32)),
             ],
             options={
-                'db_table': 'pictures',
+                "db_table": "pictures",
             },
         ),
     ]
