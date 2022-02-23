@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>카테고리 페이지</h1>
-<div>
-    <a href="{% url 'list' '한국' %}">한국</a>
-    <a href="{% url 'list' '중국' %}">중국</a>
-    <a href="{% url 'list' '일본' %}">일본</a>
-</div>
+    <h1>카테고리 페이지</h1>
+    <section>
+        <button class="category-btn">
+            <li><a href="#"><img src="images/#">Korea</a></li>
+            <li><a href="#"><img src="images/#">Japan</a></li>
+            <li><a href="#"><img src="images/#">China</a></li>
+        </button>
+    </section>
 {% endblock %}
