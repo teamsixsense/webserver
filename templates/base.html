@@ -9,7 +9,23 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    <header>
+        <p>G:RIDA그리다</p>
+        <ul>
+            <li><a href="category.html">Home</a></li>
+            <li><a href="#">Korea</a></li>
+            <li><a href="#">Japan</a></li>
+            <li><a href="#">China</a></li>
+            <li class="btn_search">
+                <a href="javascript:void(0);"><img alt="통합검색" src="images/#"></a>
+                <label for="totalSearch" class="a11y">통합검색</label><input id="totalSearch" placeholder="통합검색" type="text">
+            </li>
+        </ul>
+    </header>
     {% block content %}
     {% endblock %}
+    <footer>
+        <p> Copyright ©2022 TEAMSPARTA_GRIDA그리다. All rights reserved. </p>
+    </footer>
 </body>
 </html>
