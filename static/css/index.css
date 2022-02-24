@@ -10,11 +10,7 @@
 /*    align-items: center;*/
 /*    padding: 0 1.2rem;*/
 /*}*/
-header{
-    padding: 0px;
-    margin: 0px;
-    visibility: hidden;
-}
+
 section{
     /*background-color: blueviolet;*/
     width: 500px;
