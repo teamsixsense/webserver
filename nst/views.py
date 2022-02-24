@@ -1,6 +1,8 @@
+
+from typing import Any
 from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import DetailView, TemplateView, View
 
 from nst.models import Picmodel
@@ -27,6 +29,10 @@ class PicDetailView(DetailView):  # type: ignore
     template_name = "detail.html"
     context_object_name = "picture_info"
 
+    def post(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
+        return redirect("result", kwargs["pk"])
 
-class ResultView(TemplateView):
-    template_name = "result.html"
+
+class ResultView(View):
+    def get(self, request: HttpRequest, **kwargs: int) -> HttpResponse:
+        return render(request, "result.html", {"result": kwargs["result"]})
