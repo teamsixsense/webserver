@@ -1,7 +1,9 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gowun Dodum', sans-serif;
+    /*font-family: 'Gothic A1', sans-serif;*/
+    /*font-family: 'Nanum Gothic', sans-serif;*/
     /*border: 1px solid black;*/
 }
 .con{
@@ -28,6 +30,7 @@ header{
 }
 .title{
     text-decoration: none;
+    font-family: 'Black Han Sans', sans-serif;
     color: white;
     font-size: 2rem;
 }
@@ -41,11 +44,16 @@ header>ul>li{
 header>ul>li>a{
     color: white;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 1rem;
     /*font-weight: 400;*/
 }
 header>ul>li:first-child>a{
     border-bottom: 5px solid whitesmoke;
+}
+@media screen and (max-width: 800px) {
+    header{
+        flex-direction: column;
+    }
 }
 /*header>ul>li:hover{*/
 /*    border-bottom: 5px solid ghostwhite;*/
