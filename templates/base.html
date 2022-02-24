@@ -20,8 +20,9 @@
             <li><a href="{% url 'list' 'Japan' %}">Japan</a></li>
             <li><a href="{% url 'list' 'China' %}">China</a></li>
             <li class="btn_search">
-                <a href="javascript:void(0);"></a>
-                <label for="totalSearch" class="a11y"></label><input id="totalSearch" placeholder="검색어 입력" type="text">
+                <form action="{% url 'search' %}" method="get">
+                    <label for="totalSearch" class="a11y"></label><input id="totalSearch" placeholder="검색어 입력" type="text" name="q">
+                </form>
             </li>
         </ul>
     </header>

@@ -4,14 +4,9 @@
     <link href="{% static 'css/search.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block content %}
-    <!-- <form method="get">
-        <input type="text" name="q">
-        <input type="submit">
-    </form> -->
     {% if error %}
     {{ error }}
     {% endif %}
-
     {% for pic in picture_list %}
     <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
     {% endfor %}
