@@ -36,7 +36,5 @@ def sync_search(keyword: str) -> List[Picmodel]:
 #         "key":key,
 #         "img":img,
 #     }
-#     headers = {'Content-Type':'application/json; charset=utf-8'}
-#     cookies = {'ck_test': 'cookies_test'} 
-#     response = requests.post(url=url, data=datas, headers=headers, cookies=cookies)
+#     response = requests.post(url=url, data=datas)
 #     return response
