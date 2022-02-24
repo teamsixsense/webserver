@@ -5,7 +5,10 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, TemplateView, View
 
+from asgiref.sync import async_to_sync, sync_to_async
+
 from nst.models import Picmodel
+from nst.services import get_pic, search, sync_search
 
 # Create your views here.
 
@@ -36,3 +39,14 @@ class PicDetailView(DetailView):  # type: ignore
 class ResultView(View):
     def get(self, request: HttpRequest, **kwargs: int) -> HttpResponse:
         return render(request, "result.html", {"result": kwargs["result"]})
+
+
+# async def ResultViewTwo(request: HttpRequest, **kwargs: Any) -> HttpResponse:
+#     # a = await get_pic(2)
+#     a = await search("Korea")
+#     # a = sync_search("Korea")
+#     print(a)
+#     return render(request, "result.html", {"result": kwargs["result"]})
+
+async def searchview(request: HttpRequest) -> HttpResponse:
+    pass
