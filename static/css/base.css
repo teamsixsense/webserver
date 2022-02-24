@@ -30,7 +30,6 @@ header{
     text-decoration: none;
     color: white;
     font-size: 2rem;
-    /*font-weight: 700;*/
 }
 header>ul{
     display: flex;
