@@ -49,4 +49,15 @@ class ResultView(View):
 #     return render(request, "result.html", {"result": kwargs["result"]})
 
 async def searchview(request: HttpRequest) -> HttpResponse:
-    pass
+    keyword = request.GET.get('q', None)
+    if keyword:
+        picture_list = await search(keyword)
+        if len(picture_list) == 0:
+            error = "검색 결과가 없습니다."
+            return render(request, "search.html", {"picture_list":picture_list, "error":error})
+        else:
+            return render(request, "search.html", {"picture_list":picture_list})
+    else:
+        picture_list = []
+        error = "검색어를 입력하세요."
+        return render(request, "search.html", {"picture_list":picture_list, "error":error})
