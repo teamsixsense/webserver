@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block content %}
-<h1>{{ picture_info.name }}</h1>
-<img src="{{ picture_info.image.url }}" alt="{{ picture_info.image.name }}">
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="submit">
-</form>
+
+    <div class="card">
+        <img src="{{ picture_info.image.url }}" style="float:left;  margin-left:-200px; margin-right: 20px; margin-bottom: 10px; " alt="{{ picture_info.name }}">
+        <div class="card-horizontal">
+            <div class="container">
+                <h1 class="card-title">{{ picture_info.name }}</h1>
+                <p class="card-text">{{ picture_info.desc }}</p>
+
+                <p class="card-convert-text">이 그림 스타일로 사진 변환하기</p>
+                <a href="#" class="btn btn-primary">변환하기</a>
+            </div>
+
+        </div>
+    </div>
+
+
 {% endblock %}
