@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link href="{% static 'css/search.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block content %}
+    {% if error %}
+    {{ error }}
+    {% endif %}
+    {% for pic in picture_list %}
+    <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
+    {% endfor %}
+{% endblock %}
