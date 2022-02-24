@@ -15,9 +15,9 @@
         <p>G:RIDA그리다</p>
         <ul>
             <li><a href="{% url 'category' %}">Home</a></li>
-            <li><a href="#">Korea</a></li>
-            <li><a href="#">Japan</a></li>
-            <li><a href="#">China</a></li>
+            <li><a href="{% url 'list' 'Korea' %}">Korea</a></li>
+            <li><a href="{% url 'list' 'Japan' %}">Japan</a></li>
+            <li><a href="{% url 'list' 'China' %}">China</a></li>
             <li class="btn_search">
                 <a href="javascript:void(0);"><img alt="통합검색" src="images/#"></a>
                 <label for="totalSearch" class="a11y">통합검색</label><input id="totalSearch" placeholder="통합검색" type="text">

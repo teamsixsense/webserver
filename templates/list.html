@@ -1,6 +1,8 @@
-{% load static %}
-<link href="{% static 'category.css' %}" rel="stylesheet" type="text/css">
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link href="{% static 'category.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block content %}
     {% for pic in picture_list %}
     <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
