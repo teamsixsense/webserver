@@ -1,7 +1,7 @@
 section{
-    background-color: ghostwhite;
+    /*background-color: ghostwhite; !*완성 후 배경색 삭제*!*/
     display: flex;
-    width: 800px;
+    width: 1000px;
     margin: 0 auto;
     box-sizing: border-box;
     height: 100vh;
@@ -14,7 +14,7 @@ section>div>li{
 }
 .category-btn>li>a {
     background-color: gray;
-    width: 800px;
+    width: 1000px;
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -23,5 +23,11 @@ section>div>li{
     margin-bottom: 20px;
     text-decoration: none;
     font-size: 1.8rem;
-    font-weight: bold;
+    font-weight: bolder;
+    border-radius: 0.3rem;
+    opacity: 0.5;
+}
+.category-btn>li>a:hover{
+    border: 3px solid whitesmoke;
+    opacity: unset;
 }

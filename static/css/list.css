@@ -1,0 +1,17 @@
+.list_wrap{
+    background-color: ghostwhite;
+    display: inline-block;
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /*height: 100vh;*/
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+ul, li{
+    list-style: none;
+a{
+    text-decoration: none;
+    color: white;
+}
