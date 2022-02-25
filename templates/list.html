@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <link href="{% static 'category.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/list.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block content %}
-    {% for pic in picture_list %}
-    <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
-    {% endfor %}
+    <div class="list_wrap">
+        <ul>
+            {% for pic in picture_list %}
+                <li>
+{#                    <img class="list_img" src="{{ pic.image.url }}">#}
+                    <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
+                    <a href="{% url 'detail' pic.pk %}">{{ pic.artist }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
