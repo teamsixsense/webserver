@@ -14,6 +14,7 @@ section>div>li{
 }
 .category-btn>li>a {
     background-color: gray;
+    color: black;
     width: 1000px;
     height: 150px;
     display: flex;

@@ -5,14 +5,22 @@
 {% endblock %}
 {% block content %}
     <div class="list_wrap">
-        <ul>
-            {% for pic in picture_list %}
-                <li>
-{#                    <img class="list_img" src="{{ pic.image.url }}">#}
-                    <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
-                    <a href="{% url 'detail' pic.pk %}">{{ pic.artist }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="list_item_box">
+            <div class="list_img_box">
+                <ul>
+                    {% for pic in picture_list %}
+                        <li class="item">
+                            <div class="list_img">
+                                <a><img class="img" src="{{ pic.image.url }}" style="height: 180px;margin-right: -12px;margin-left: -7px;"></a>
+                            </div>
+                            <div class="list_img_cont">
+                                <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
+                                <a href="{% url 'detail' pic.pk %}">{{ pic.artist }}</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}
