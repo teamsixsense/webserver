@@ -1,5 +1,8 @@
+from datetime import datetime
 from time import time
 from typing import List, cast
+
+import httpx
 
 # import requests
 from asgiref.sync import sync_to_async
@@ -28,11 +31,16 @@ def sync_search(keyword: str) -> List[Picmodel]:
     return result
 
 
-# def use_api(key, img):
-#     url = "http://127.0.0.1:8001/api/v1/nsts/"
-#     datas = {
-#         "key":key,
-#         "img":img,
-#     }
-#     response = requests.post(url=url, data=datas)
-#     return response
+async def use_api(style_image, imgs) -> str:
+    today = datetime.now()
+    mytime = today.strftime("%Y-%m-%d-%H-%M-%S")
+    data = {
+        "image_name": style_image,
+        "key": mytime,
+    }
+    files = {"img": imgs}
+    async with httpx.AsyncClient() as client:
+        r = await client.post("http://127.0.0.1:8001/api/v1/nsts/two", data=data, files=files)
+        url = r.json()
+        id = url["file_url"].split("/")[-1]
+        return str(id)

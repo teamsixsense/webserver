@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import DetailView, TemplateView, View
 
 from nst.models import Picmodel
-from nst.services import get_pic, search, sync_search
+from nst.services import get_pic, search, use_api
 
 # Create your views here.
 
@@ -26,26 +26,24 @@ class PicListView(View):
         return render(request, "list.html", {"picture_list": picture_list})
 
 
-class PicDetailView(DetailView):  # type: ignore
-    model = Picmodel
-    template_name = "detail.html"
-    context_object_name = "picture_info"
-
-    def post(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
-        return redirect("result", kwargs["pk"])
-
-
-async def PicDetailViewTwo(request: HttpRequest, **kwargs: int) -> HttpResponse:
+async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
     if request.method == "GET":
         picture_info = await get_pic(kwargs["pk"])
         return render(request, "detail.html", {"picture_info": picture_info})
     elif request.method == "POST":
-        return redirect("result", kwargs["pk"])
+        imgs = request.FILES["imgs"].file.getvalue()
+        url = request.POST["style_image"]
+        style_image = url.split("/")[-1]
+
+        id = await use_api(style_image=style_image, imgs=imgs)
+
+        return redirect("result", id)
 
 
 class ResultView(View):
-    def get(self, request: HttpRequest, **kwargs: int) -> HttpResponse:
-        return render(request, "result.html", {"result": kwargs["result"]})
+    def get(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+        result = "https://d1txao2peb1gkd.cloudfront.net/" + kwargs["result"]
+        return render(request, "result.html", {"result": result})
 
 
 # async def ResultViewTwo(request: HttpRequest, **kwargs: Any) -> HttpResponse:
