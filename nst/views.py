@@ -1,14 +1,13 @@
-
 from typing import Any
+
+from asgiref.sync import async_to_sync, sync_to_async
 from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, TemplateView, View
 
-from asgiref.sync import async_to_sync, sync_to_async
-
 from nst.models import Picmodel
-from nst.services import get_pic, search, sync_search
+from nst.services import get_pic, search, use_api
 
 # Create your views here.
 
@@ -27,18 +26,24 @@ class PicListView(View):
         return render(request, "list.html", {"picture_list": picture_list})
 
 
-class PicDetailView(DetailView):  # type: ignore
-    model = Picmodel
-    template_name = "detail.html"
-    context_object_name = "picture_info"
+async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
+    if request.method == "GET":
+        picture_info = await get_pic(kwargs["pk"])
+        return render(request, "detail.html", {"picture_info": picture_info})
+    elif request.method == "POST":
+        imgs = request.FILES["imgs"].file.getvalue()
+        url = request.POST["style_image"]
+        style_image = url.split("/")[-1]
 
-    def post(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
-        return redirect("result", kwargs["pk"])
+        id = await use_api(style_image=style_image, imgs=imgs)
+
+        return redirect("result", id)
 
 
 class ResultView(View):
-    def get(self, request: HttpRequest, **kwargs: int) -> HttpResponse:
-        return render(request, "result.html", {"result": kwargs["result"]})
+    def get(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
+        result = "https://d1txao2peb1gkd.cloudfront.net/" + kwargs["result"]
+        return render(request, "result.html", {"result": result})
 
 
 # async def ResultViewTwo(request: HttpRequest, **kwargs: Any) -> HttpResponse:
@@ -48,16 +53,17 @@ class ResultView(View):
 #     print(a)
 #     return render(request, "result.html", {"result": kwargs["result"]})
 
+
 async def searchview(request: HttpRequest) -> HttpResponse:
-    keyword = request.GET.get('q', None)
+    keyword = request.GET.get("q", None)
     if keyword:
         picture_list = await search(keyword)
         if len(picture_list) == 0:
             error = "검색 결과가 없습니다."
-            return render(request, "search.html", {"picture_list":picture_list, "error":error})
+            return render(request, "search.html", {"picture_list": picture_list, "error": error})
         else:
-            return render(request, "search.html", {"picture_list":picture_list})
+            return render(request, "search.html", {"picture_list": picture_list})
     else:
         picture_list = []
         error = "검색어를 입력하세요."
-        return render(request, "search.html", {"picture_list":picture_list, "error":error})
+        return render(request, "search.html", {"picture_list": picture_list, "error": error})
