@@ -9,4 +9,5 @@ urlpatterns = [
     path("detail/<int:pk>", views.PicDetailView.as_view(), name="detail"),
     path("result/<int:result>", views.ResultView.as_view(), name="result"),
     path("search/", views.searchview, name="search"), # type: ignore
+    path("detail2/<int:pk>", views.PicDetailViewTwo, name="detail2"),
 ]

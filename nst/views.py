@@ -35,11 +35,12 @@ class PicDetailView(DetailView):  # type: ignore
         return redirect("result", kwargs["pk"])
 
 
-def PicDetailViewTwo(request: HttpRequest) -> HttpRequest:
+async def PicDetailViewTwo(request: HttpRequest, **kwargs: int) -> HttpResponse:
     if request.method == "GET":
-        pass
+        picture_info = await get_pic(kwargs["pk"])
+        return render(request, "detail.html", {"picture_info": picture_info})
     elif request.method == "POST":
-        pass
+        return redirect("result", kwargs["pk"])
 
 
 class ResultView(View):
