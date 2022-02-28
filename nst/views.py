@@ -31,12 +31,14 @@ async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
         picture_info = await get_pic(kwargs["pk"])
         return render(request, "detail.html", {"picture_info": picture_info})
     elif request.method == "POST":
-        imgs = request.FILES["imgs"].file.getvalue()
-        url = request.POST["style_image"]
-        style_image = url.split("/")[-1]
+        try:
+            imgs = request.FILES["imgs"].file.getvalue()
+            url = request.POST["style_image"]
+            style_image = url.split("/")[-1]
 
-        id = await use_api(style_image=style_image, imgs=imgs)
-
+            id = await use_api(style_image=style_image, imgs=imgs)
+        except:
+            return redirect("detail", kwargs["pk"])
         return redirect("result", id)
 
 
@@ -44,14 +46,6 @@ class ResultView(View):
     def get(self, request: HttpRequest, **kwargs: str) -> HttpResponse:
         result = "https://d1txao2peb1gkd.cloudfront.net/" + kwargs["result"]
         return render(request, "result.html", {"result": result})
-
-
-# async def ResultViewTwo(request: HttpRequest, **kwargs: Any) -> HttpResponse:
-#     # a = await get_pic(2)
-#     a = await search("Korea")
-#     # a = sync_search("Korea")
-#     print(a)
-#     return render(request, "result.html", {"result": kwargs["result"]})
 
 
 async def searchview(request: HttpRequest) -> HttpResponse:
