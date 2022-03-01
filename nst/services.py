@@ -31,7 +31,7 @@ def sync_search(keyword: str) -> List[Picmodel]:
     return result
 
 
-async def use_api(style_image, imgs) -> str:
+async def use_api(style_image: str, imgs) -> str:
     today = datetime.now()
     mytime = today.strftime("%Y-%m-%d-%H-%M-%S")
     data = {
