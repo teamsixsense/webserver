@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link href="{% static 'css/category.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/category.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block content %}
-    <section>
-        <div class="category-btn">
-            <li><a href="{% url 'list' 'Korea' %}"><img src="images/#">K o r e a</a></li>
-            <li><a href="{% url 'list' 'Japan' %}"><img src="images/#">J a p a n</a></li>
-            <li><a href="{% url 'list' 'China' %}"><img src="images/#">C h i n a</a></li>
+    <div class="category_con">
+        <div class="category_btn">
+            <div class="category_img">
+                <a href="{% url 'list' 'Korea' %}"><img src="https://d1txao2peb1gkd.cloudfront.net/media/%EB%AA%BD%EC%9C%A0%EB%8F%84%EC%9B%90%EB%8F%84.jpg"
+                        style="width: 1000px; height: 150px;">
+                    <span class="imgtext">K o r e a</span></a>
+            </div>
+            <div class="category_img">
+                <a href="{% url 'list' 'Japan' %}"><img src="https://d1txao2peb1gkd.cloudfront.net/media/%EB%B6%89%EC%9D%80_%ED%9B%84%EC%A7%80_%EC%82%B0.png"
+                        style="width: 1000px; height: 150px;">
+                    <span class="imgtext">J a p a n</span></a>
+            </div>
+            <div class="category_img">
+                <a href="{% url 'list' 'China' %}"><img src="https://d1txao2peb1gkd.cloudfront.net/media/%E5%8D%83%E9%87%8C%E6%B1%9F%E5%B1%B1%E5%9B%BE.jpg"
+                        style="width: 1000px; height: 150px;">
+                    <span class="imgtext">C h i n a</span></a>
+            </div>
         </div>
-    </section>
+    </div>
 {% endblock %}
