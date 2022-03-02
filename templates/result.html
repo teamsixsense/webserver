@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link href="{% static 'css/result.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/result.css' %}" rel="stylesheet" type="text/css">
+    <script>
+        function sharetwitter(url, text) {
+            window.open("https://twitter.com/intent/tweet?text=" + text + "&url=" +url);
+        }
+    </script>
 {% endblock %}
 {% block content %}
-{{ result }}
+    <img src="{{ result }}" alt="result">
+
+    <a href="javascript:sharetwitter('http://3.35.137.72/', '나만의 새로운 동양화를 G:RIDA그리다 by TEAMSPARTA_G:RIDA그리다')">
+        Twitter에 공유하기
+    </a>
+
 {% endblock %}
