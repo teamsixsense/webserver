@@ -76,6 +76,10 @@ section>a{
 section>a>span{
     color: white;
 }
+section>a:hover{
+    border: 3px solid whitesmoke;
+    opacity: unset;
+}
 footer{
     margin-bottom: 2rem;
     font-size: 0.8rem;
