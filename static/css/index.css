@@ -1,15 +1,15 @@
-/*.con{*/
-/*    !*background-color: dimgray;*!*/
-/*    width: 100%;*/
-/*    margin: 0 auto;*/
-/*    box-sizing: border-box;*/
-/*    height: 100vh;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    padding: 0 1.2rem;*/
-/*}*/
+.con_index{
+    /*background-color: dimgray;*/
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.2rem;
+}
 body{
     overflow: hidden;
 }
