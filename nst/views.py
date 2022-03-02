@@ -32,7 +32,7 @@ async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
         return render(request, "detail.html", {"picture_info": picture_info})
     elif request.method == "POST":
         try:
-            imgs = request.FILES["imgs"].file.getvalue()
+            imgs = request.FILES["imgs"].file.getvalue() #mypy에러 왜뜨는지모름, 타입확인해야함
             url = request.POST["style_image"]
             style_image = url.split("/")[-1]
 
@@ -40,6 +40,7 @@ async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
         except:
             return redirect("detail", kwargs["pk"])
         return redirect("result", id)
+    # else부분 빠짐
 
 
 class ResultView(View):
