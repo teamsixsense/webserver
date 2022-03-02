@@ -40,7 +40,7 @@ async def use_api(style_image: str, imgs) -> str:
     }
     files = {"img": imgs}
     async with httpx.AsyncClient() as client:
-        r = await client.post("http://127.0.0.1:8001/api/v1/nsts/two", data=data, files=files)
+        r = await client.post("http://3.38.45.184/api/v1/nsts/two", data=data, files=files)
         url = r.json()
         id = url["file_url"].split("/")[-1]
         return str(id)
