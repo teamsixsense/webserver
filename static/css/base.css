@@ -14,7 +14,8 @@
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
-    /*height: 100vh;*/
+    /*height: 100VH;*/
+    min-height: 715px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,18 +1,32 @@
-section{
+.category_con{
     /*background-color: ghostwhite; !*완성 후 배경색 삭제*!*/
     display: flex;
     width: 1000px;
     margin: 0 auto;
     box-sizing: border-box;
-    height: 100vh;
+    /*height: 100vh;*/
     /*flex-direction: column;*/
     /*justify-content: space-between;*/
     align-items: center;
 }
-section>div>li{
+.category_con .category_btn .category_img{
     list-style-type: none;
+    position: relative;
 }
-.category-btn>li>a {
+/*.category-img{*/
+/*    position: relative;*/
+/*}*/
+.category_img .imgtext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+}
+/*.category-btn>img{*/
+/*    width: 1000px;*/
+/*    height: 150px;*/
+/*}*/
+div>a {
     background-color: gray;
     color: black;
     width: 1000px;
@@ -28,7 +42,7 @@ section>div>li{
     border-radius: 0.3rem;
     opacity: 0.5;
 }
-.category-btn>li>a:hover{
+div>a:hover{
     border: 3px solid whitesmoke;
     opacity: unset;
 }
