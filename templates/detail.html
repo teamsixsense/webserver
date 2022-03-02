@@ -15,12 +15,13 @@
                 <p class="card-convert-text">이 그림 스타일로 사진 변환하기</p>
 
                 <form method="post" enctype="multipart/form-data=data">
-                                        {% csrf_token %}
-                                        <input type="text" name="style_image" id="style_image" value="{{ picture_info.image.url }}" style="display: none;">
-                                        <input type="file" name="imgs" id="imgs">
+                    {% csrf_token %}
+                    <input type="text" name="style_image" id="style_image" value="{{ picture_info.image.url }}" style="display: none;">
+                    <input type="file" name="imgs" id="imgs">
 
 
-                <button onclick="alert('이미지 변환이 진행중입니다.\n변환이 완료되면 결과 페이지로 이동합니다.')">변환하기</button>
+                    <button>변환하기</button>
+                </form>
             </div>
 
         </div>
