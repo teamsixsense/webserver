@@ -1,0 +1,27 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout source code.
+        uses: actions/checkout@main
+
+      - name: Run scripts in server
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          script: |
+            cd sparta/webserver
+            git fetch
+            git pull
+            sudo systemctl restart webserver
+            sudo systemctl restart nginx

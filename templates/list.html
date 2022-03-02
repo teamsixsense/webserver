@@ -11,7 +11,7 @@
                     {% for pic in picture_list %}
                         <li class="item">
                             <div class="list_img">
-                                <img class="img" src="{{ pic.image.url }}" href="{% url 'detail' pic.pk %}" style="height: 200px">
+                                <a href="{% url 'detail' pic.pk %}"><img class="img" src="{{ pic.image.url }}" style="height: 200px;"></a>
                             </div>
                             <div class="list_img_cont">
                                 <a href="{% url 'detail' pic.pk %}">{{ pic.name }}</a>
