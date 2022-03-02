@@ -13,6 +13,7 @@
                 <p class="card-text">{{ picture_info.desc }}</p>
 
                 <p class="card-convert-text">이 그림 스타일로 사진 변환하기</p>
+
                 <form method="post" enctype="multipart/form-data=data">
                                         {% csrf_token %}
                                         <input type="text" name="style_image" id="style_image" value="{{ picture_info.image.url }}" style="display: none;">

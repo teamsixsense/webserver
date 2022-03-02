@@ -1,0 +1,32 @@
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    /*color: white;*/
+    color: black;
+}
+.list_wrap {
+    background-color: ghostwhite;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 908px;
+    position: relative;
+    vertical-align: top;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.list_wrap .list_item{
+    display: inline-block;
+
+}
+.list_wrap .item{
+    display: inline-block;
+    width: 30%;
+}
+.list_wrap .item .img{
+    width: 100%;
+    height: 100%;
+}
