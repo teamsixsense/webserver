@@ -4,7 +4,8 @@ from asgiref.sync import async_to_sync, sync_to_async
 from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic import DetailView, TemplateView, View
+from django.views.generic import TemplateView, View
+from django.views.decorators.http import require_http_methods, require_GET
 
 from nst.models import Picmodel
 from nst.services import get_pic, search, use_api
@@ -26,6 +27,7 @@ class PicListView(View):
         return render(request, "list.html", {"picture_list": picture_list})
 
 
+@require_http_methods(["GET", "POST"])
 async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
     if request.method == "GET":
         picture_info = await get_pic(kwargs["pk"])
@@ -40,7 +42,6 @@ async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
         except:
             return redirect("detail", kwargs["pk"])
         return redirect("result", id)
-    # else부분 빠짐
 
 
 class ResultView(View):
@@ -49,6 +50,7 @@ class ResultView(View):
         return render(request, "result.html", {"result": result})
 
 
+@require_GET()
 async def searchview(request: HttpRequest) -> HttpResponse:
     keyword = request.GET.get("q", None)
     if keyword:
