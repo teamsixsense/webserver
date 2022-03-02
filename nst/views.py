@@ -50,7 +50,7 @@ class ResultView(View):
         return render(request, "result.html", {"result": result})
 
 
-@require_GET()
+@require_GET
 async def searchview(request: HttpRequest) -> HttpResponse:
     keyword = request.GET.get("q", None)
     if keyword:
