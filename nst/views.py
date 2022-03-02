@@ -39,6 +39,7 @@ async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
 
             id = await use_api(style_image=style_image, imgs=imgs)
         except:
+            print("error")
             return redirect("detail", kwargs["pk"])
         return redirect("result", id)
 
