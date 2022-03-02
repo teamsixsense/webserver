@@ -27,7 +27,6 @@ class PicListView(View):
         return render(request, "list.html", {"picture_list": picture_list})
 
 
-@require_http_methods(["GET", "POST"])
 async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
     if request.method == "GET":
         picture_info = await get_pic(kwargs["pk"])
@@ -50,7 +49,6 @@ class ResultView(View):
         return render(request, "result.html", {"result": result})
 
 
-@require_GET
 async def searchview(request: HttpRequest) -> HttpResponse:
     keyword = request.GET.get("q", None)
     if keyword:
