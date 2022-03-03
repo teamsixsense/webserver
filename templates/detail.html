@@ -2,12 +2,15 @@
 {% load static %}
 {% block head %}
     <link href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css">
+
+
+
 {% endblock %}
 {% block content %}
 
-    <div class="card">
-        <img src="{{ picture_info.image.url }}" style="float:left;  margin-left:-200px; margin-right: 20px; margin-bottom: 10px; " alt="{{ picture_info.name }}">
-        <div class="card-horizontal">
+    <div class="card" style="display:flex; align-items:center; justify-content: space-between">
+        <img src="{{ picture_info.image.url }}" style="max-width:70%; height:auto; float:left;  margin-left:20px; margin-right: 20px;  " alt="{{ picture_info.name }}">
+        <div class="card-horizontal" style="max-width: 40%">
             <div class="container">
                 <h1 class="card-title">{{ picture_info.name }}</h1>
                 <p class="card-text">{{ picture_info.desc }}</p>
@@ -17,11 +20,15 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <input type="text" name="style_image" id="style_image" value="{{ picture_info.image.url }}" style="display: none;">
+
                     <input type="file" name="imgs" id="imgs">
 
 
-                    <button onclick="alert('이미지 변환이 진행중입니다.\n변환이 완료되면 결과 페이지로 이동합니다.')">변환하기</button>
+                    <button id="convert" onclick="alert('이미지 변환이 진행중입니다.\n변환이 완료되면 결과 페이지로 이동합니다.')">변환하기</button>
+
+
                 </form>
+
             </div>
 
         </div>
