@@ -1,0 +1,15 @@
+section>a{
+    background-color: black;
+    display: block;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    width: 130px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: auto;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+section>a>span{
+    color: white;
+}
