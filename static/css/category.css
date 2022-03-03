@@ -13,19 +13,14 @@
     list-style-type: none;
     position: relative;
 }
-/*.category-img{*/
-/*    position: relative;*/
-/*}*/
+
 .category_img .imgtext{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate( -50%, -50% );
 }
-/*.category-btn>img{*/
-/*    width: 1000px;*/
-/*    height: 150px;*/
-/*}*/
+
 div>a {
     background-color: gray;
     color: black;

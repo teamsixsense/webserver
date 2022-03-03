@@ -14,16 +14,7 @@ body{
 header{
     display: none;
 }
-/*.index_warp::before{*/
-/*    content: "";*/
-/*    opacity: 0.2;*/
-/*    position: absolute;*/
-/*    top: 0px;*/
-/*    left: 0px;*/
-/*    right: 0px;*/
-/*    bottom: 0px;*/
-/*    background-color: lavender;*/
-/*}*/
+
 .index_warp{
     margin: 0 auto;
     position: relative;
