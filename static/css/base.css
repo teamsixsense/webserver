@@ -58,6 +58,10 @@ header>ul>li:first-child>a{
         flex-direction: column;
     }
 }
+
+#totalSearch{
+    color: #292929;
+}
 /*header>ul>li:hover{*/
 /*    border-bottom: 5px solid ghostwhite;*/
 /*}*/
