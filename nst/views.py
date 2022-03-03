@@ -1,11 +1,8 @@
 from typing import Any
 
-from asgiref.sync import async_to_sync, sync_to_async
-from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView, View
-from django.views.decorators.http import require_http_methods, require_GET
 
 from nst.models import Picmodel
 from nst.services import get_pic, search, use_api
@@ -28,10 +25,7 @@ class PicListView(View):
 
 
 async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
-    if request.method == "GET":
-        picture_info = await get_pic(kwargs["pk"])
-        return render(request, "detail.html", {"picture_info": picture_info})
-    elif request.method == "POST":
+    if request.method == "POST":
         try:
             imgs = request.FILES["imgs"].file.getvalue() #mypy에러 왜뜨는지모름, 타입확인해야함
             url = request.POST["style_image"]
@@ -42,6 +36,9 @@ async def PicDetailView(request: HttpRequest, **kwargs: int) -> HttpResponse:
             print("error")
             return redirect("detail", kwargs["pk"])
         return redirect("result", id)
+    else:
+        picture_info = await get_pic(kwargs["pk"])
+        return render(request, "detail.html", {"picture_info": picture_info})
 
 
 class ResultView(View):
